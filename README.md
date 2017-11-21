@@ -1,6 +1,6 @@
-## VrVideoComponent
+## react-android-360-video
 
-A `<VrVideoComponent>` component for react-native android for playing vr 360 videos
+A React Native wrapper for Google VrVideoView (for android) for playing 360 video
 
 Supports Android API 19+
 
