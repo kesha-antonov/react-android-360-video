@@ -32,7 +32,7 @@ public class VrVideoViewPackage implements ReactPackage {
         return modules;
     }
 
-    @Override
+    // NOTE: DEPRECATED
     public List<Class<? extends JavaScriptModule>> createJSModules() {
         return Collections.emptyList();
     }
