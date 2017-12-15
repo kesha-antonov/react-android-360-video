@@ -23,6 +23,7 @@ import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.ReactApplicationContext;
 
 /**
  * Created by root on 23/3/17.
@@ -43,12 +44,12 @@ public class VrVideoViewManager extends SimpleViewManager<VrVideoView> {
     public static final String PROP_DISPLAY_MODE = "displayMode";
     // public static final String PROP_KILL= "kill";
 
-    private Activity mActivity;
+    private ReactApplicationContext mReactContext;
     private ThemedReactContext mContext;
     public boolean activated = true;
 
-    public VrVideoViewManager(Activity activity) {
-        mActivity = activity;
+    public VrVideoViewManager(ReactApplicationContext reactContext) {
+        mReactContext = reactContext;
     }
 
     @Override
@@ -60,7 +61,7 @@ public class VrVideoViewManager extends SimpleViewManager<VrVideoView> {
     protected VrVideoView createViewInstance(ThemedReactContext reactContext) {
         Log.d(TAG, "[CVrVideoView] Component init");
         this.mContext = reactContext;
-        VrVideoView vrView = new VrVideoView(mActivity);
+        VrVideoView vrView = new VrVideoView(reactContext.getCurrentActivity());
         vrView.setEventListener(new ActivityEventListener(vrView, this));
         vrView.setDisplayMode(VrVideoView.DisplayMode.FULLSCREEN_MONO);
         // vrView.pauseVideo();

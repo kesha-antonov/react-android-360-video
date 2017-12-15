@@ -19,10 +19,7 @@ import java.util.List;
 
 public class VrVideoViewPackage implements ReactPackage {
 
-    private Activity mActivity;
-
-    public VrVideoViewPackage(Activity activity) {
-        mActivity = activity;
+    public VrVideoViewPackage() {
     }
 
     @Override
@@ -40,7 +37,7 @@ public class VrVideoViewPackage implements ReactPackage {
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
-                new VrVideoViewManager(mActivity)
+              new VrVideoViewManager(reactContext)
         );
     }
 
